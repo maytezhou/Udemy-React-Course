@@ -13,6 +13,7 @@ export class Search extends Component {
         searchUsers: PropTypes.func.isRequired,
         clearUsers : PropTypes.func.isRequired,
         showClear: PropTypes.bool.isRequired,
+        setAlert: PropTypes.func.isRequired,
     }
 
 
@@ -22,20 +23,14 @@ export class Search extends Component {
     handleSUbmit (event){
         console.log(this.state.value);
     event.preventDefault();
-    this.props.searchUsers(this.state.value);
-this.setState({value:''});
+    if (this.state.value === ''){
+        this.props.setAlert('Please enter something ','light');
+    }else {
+        this.props.searchUsers(this.state.value);
+        this.setState({value:''});
     }
-   /* state = {
-        text:''
-    };*/
-/*onSubmit = e => {
-e.prevenDefault();
-console.log(this.state.text);
-/*this.props.searchUsers(this.state.text);
-this.setState({text:''});
-    };*/
-
-/*onChange = e => this.setState({[e.target.name]: e.target.value});*/
+  
+    }
     
     render() {
         const {showClear, clearUsers} = this.props;
