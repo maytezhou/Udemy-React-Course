@@ -31,6 +31,17 @@ export class Search extends Component {
     }
   
     }
+   /* state = {
+        text:''
+    };*/
+/*onSubmit = e => {
+e.prevenDefault();
+console.log(this.state.text);
+/*this.props.searchUsers(this.state.text);
+this.setState({text:''});
+    };*/
+
+/*onChange = e => this.setState({[e.target.name]: e.target.value});*/
     
     render() {
         const {showClear, clearUsers} = this.props;
